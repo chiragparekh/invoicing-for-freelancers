@@ -2,8 +2,10 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import UpdateClientForm from "@/Pages/Clients/Partials/UpdateClientForm.vue";
+import CreateProjectForm from "@/Pages/Clients/Partials/CreateProjectForm.vue";
+import ProjectList from "@/Pages/Clients/Partials/ProjectList.vue";
 
-defineProps({
+const props = defineProps({
   client: {
 	type: Object,
   },
@@ -24,11 +26,21 @@ defineProps({
 		  <UpdateClientForm
 			  class="max-w-xl"
 		  />
-<!--		  <UpdateProfileInformationForm-->
-<!--			  :must-verify-email="mustVerifyEmail"-->
-<!--			  :status="status"-->
-<!--			  class="max-w-xl"-->
-<!--		  />-->
+		</div>
+		<div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+		  <header>
+			<h2 class="text-lg font-medium text-gray-900">Projects</h2>
+
+			<p class="mt-1 text-sm text-gray-600">
+			  Manage client projects
+			</p>
+		  </header>
+		  <CreateProjectForm
+			  class="max-w-xl"
+		  />
+		  <div class="mt-4 max-w-3xl">
+			<ProjectList />
+		  </div>
 		</div>
 	  </div>
 	</div>

@@ -165,6 +165,11 @@ const deleteClient = async (clientId) => {
                                             </th>
                                         </tr>
                                     </thead>
+								  	<tbody v-if="clients.data.length <= 0">
+										<tr>
+										  <td colspan="2" class="text-center whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">No clients data available.</td>
+										</tr>
+									</tbody>
                                     <tbody
                                         class="divide-y divide-gray-200 bg-white"
                                     >

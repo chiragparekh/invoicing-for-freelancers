@@ -51,8 +51,10 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
+        $client->loadMissing(['projects']);
+
         return Inertia::render('Clients/Edit', [
-            'client' => $client,
+            'client' => $client->refresh(),
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,6 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
     Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     Route::get('/clients/{client}/show', [ClientController::class, 'show'])->name('clients.show');
+
+    Route::post('/clients/{client}/projects', [ProjectController::class, 'store'])->name('projects.store');
+    Route::delete('/clients/{client}/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    Route::put('/clients/{client}/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
 });
 
 require __DIR__.'/auth.php';
